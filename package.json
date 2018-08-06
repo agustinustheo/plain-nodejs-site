@@ -1,0 +1,19 @@
+{
+  "name": "dilionagungjaya",
+  "version": "1.0.0",
+  "description": "Company website of Dilion Agung Jaya",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agustinustheo/dilionagungjaya.git"
+  },
+  "author": "Theo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agustinustheo/dilionagungjaya/issues"
+  },
+  "homepage": "https://github.com/agustinustheo/dilionagungjaya#readme"
+}
