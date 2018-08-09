@@ -1,24 +1,29 @@
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 
-const hostname = '127.0.0.1';
+const hostname = 'localhost';
 const port = '3000';
 
 const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    fs.readFile('./index.html', (err, data) =>{
-        if(err){
-            res.statusCode = 404;
-            res.write('<h1>File Not Found</h1>');
-        }
-        else{
-            res.write(data);
-        }
-        res.end();
-    });
-  });
+    if(req.url === '/'){
+        fs.readFile('./public/index.html', (err, data)=>{
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(data);
+        });
+    }
+    else if(req.url.match('\.png$')){
+        let pngPath = path.join(__dirname, 'public', req.url);
+        let fileStream = fs.createReadStream(pngPath);
+        res.writeHead(200, {'Content-type': 'image/png'});
+        fileStream.pipe(res);
+    }
+    else{
+        res.writeHead(404, {'Content-type': 'text/html'});
+        res.end('No Page Found');
+    }
+  }).listen(port);
   
   server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running at ${port}`);
   });
