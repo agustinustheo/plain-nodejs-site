@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+.dilion-background{
+    background-image: url('../img/background.png');
+    background-repeat: repeat;
+}
+.dilion-header{
+    width: 100vw;
+    background: white;
+    padding-bottom: 10px;
+    box-shadow: 0 0 20px 0 #565656;
+}
+.dilion-header-img{
+    --imgWidth: 95%;
+    --substract-parent-element-width: calc(100% - var(--imgWidth));
+    width: var(--imgWidth);
+
+    margin-top: 10px;
+    position: relative;
+    left: calc(var(--substract-parent-element-width) / 2);
+}
+.dilion-navbar{
+    width: 100%;
+    display: flex;
+}
+.dilion-navbar-item{
+    width: 20%;
+    height: 40px;
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+    text-align: center;
+    line-height: 40px;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+.dilion-navbar-item:hover{
+    color: grey;
+}
