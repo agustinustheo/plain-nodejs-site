@@ -12,6 +12,12 @@ const server = http.createServer((req, res) => {
             res.end(data);
         });
     }
+    else if(req.url.match('\.css$')){
+        let cssPath = path.join(__dirname, 'public', req.url);
+        let fileStream = fs.createReadStream(cssPath);
+        res.writeHead(200, {'Content-type': 'text/css'});
+        fileStream.pipe(res);
+    }
     else if(req.url.match('\.png$')){
         let pngPath = path.join(__dirname, 'public', req.url);
         let fileStream = fs.createReadStream(pngPath);
