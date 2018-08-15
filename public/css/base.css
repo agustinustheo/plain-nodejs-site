@@ -1,6 +1,12 @@
 body{
     margin: 0;
     font-family: 'Lato', sans-serif;
+
+    user-zoom: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
 }
 .dilion-background{
     background-image: url('../img/background.png');
@@ -8,37 +14,92 @@ body{
 }
 .dilion-header{
     width: 100vw;
+    display: grid;
+    grid-template-areas: "left center right"
+                         "nav nav nav";
+    grid-template-columns: 35% 35% 30%;
+
     background: white;
-    padding-bottom: 10px;
     box-shadow: 0 0 20px 0 #565656;
 }
 .dilion-header-img{
-    --imgWidth: 95%;
+    --imgWidth: 75%;
     --substract-parent-element-width: calc(100% - var(--imgWidth));
     width: var(--imgWidth);
 
     margin-top: 10px;
     position: relative;
     left: calc(var(--substract-parent-element-width) / 2);
+    grid-area: left;
+}
+.dilion-header-right{
+    --fontSize: 20pt;
+    --substract-parent-element-height: calc(100% - var(--fontSize));
+    position: relative;
+    top: calc(var(--substract-parent-element-height) / 2);
+    text-align: center;
+    
+    font-size: var(--fontSize);
+    grid-area: right;
 }
 .dilion-navbar{
     width: 100%;
     display: flex;
+    margin-top: 10px;
+
+    background: #282828;
+    grid-area: nav;
 }
 .dilion-navbar-item{
-    width: 20%;
+    width: 10%;
     height: 40px;
-    border-radius: 5px;
-
     font-weight: bold;
 
-    margin-top: 10px;
     text-align: center;
     line-height: 40px;
+
+    color: grey;
 
     cursor: pointer;
     transition: all .2s;
 }
 .dilion-navbar-item:hover{
-    color: grey;
+    background: whitesmoke;
+    color: #252525;
+}
+#dilion-slider{
+    width: 750px;
+    height: 270px;
+    
+    background: transparent;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+#dilion-slider-container{
+    width: calc(750px * 7);
+    display: flex;
+
+    transition: all .3s;
+}
+.dilion-slider-content{
+    width: 750px;
+    height: 270px;
+    margin: 0;
+}
+
+#dilion-slider-button{
+    --elementWidth: 25px;
+    --elementHeight: 45px;
+    --substract-parent-element-height: calc(100% - var(--elementHeight));
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+    background: #282828;
+    opacity: .8;
+
+    position: absolute;
+    top: calc(var(--substract-parent-element-height) / 2);
+    right: 0;
+    z-index: 10;
 }

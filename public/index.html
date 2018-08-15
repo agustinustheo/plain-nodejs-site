@@ -2,14 +2,16 @@
 <html>
     <head>
         <title>
-            Dilion Agung Jaya
+            Distributor Aluminium Dilion Agung Jaya 
         </title>
+        <link rel="icon" href="./img/dilionlogo.png" />
         <link rel="stylesheet" href="./css/base.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
     <body class="dilion-background">
         <header class="dilion-header">
             <img class="dilion-header-img" src="./img/dilionatas.png" />
+            <span class="dilion-header-right">Distributor Aluminium</span>
             <nav class="dilion-navbar">
                 <div class="dilion-navbar-item">
                     HOME
@@ -28,5 +30,50 @@
                 </div>
             </nav>
         </header>
+        <main>
+            <div id="dilion-slider">
+                <div id="dilion-slider-button"></div>
+                <div id="dilion-slider-container">
+                    <img class="dilion-slider-content" src="./img/slide/12_header2.jpg">
+                    <img class="dilion-slider-content" src="./img/slide/7_DILION.jpg">
+                    <img class="dilion-slider-content" src="./img/slide/_dil1.jpg">
+                    <img class="dilion-slider-content" src="./img/slide/_dil2.jpg">
+                    <img class="dilion-slider-content" src="./img/slide/_dil5.jpg">
+                    <img class="dilion-slider-content" src="./img/slide/_dil4.jpg">
+                    <img class="dilion-slider-content" src="./img/slide/_dil3.jpg">
+                </div>
+            </div>
+        </main>
     </body>
+
+    <script>
+        let sliderButton = document.getElementById('dilion-slider-button');
+        let slider = document.getElementById('dilion-slider-container');
+        let counter = 0;
+        
+        function slideRight(){
+            if(counter >= 6){
+                slider.style.transform = 'translateX(0px)';
+                counter = 0;
+            }
+            else{
+                counter++;
+                slider.style.transform = 'translateX('+ parseInt(counter * -750) +'px)';
+            }
+        }
+        setInterval(function(){
+            slideRight()
+        },4000);
+        sliderButton.onclick = function(){ slideLeft(); }
+        function slideLeft(){
+            if(counter <= 0 || slider.getAttribute("style")==null || slider.getAttribute("style")==""){
+                slider.style.transform = 'translateX(-4500px)';
+                counter = 6;
+            }
+            else{
+                counter--;
+                slider.style.transform = 'translateX('+ parseInt(counter * -750) +'px)';
+            }
+        }
+    </script>
 </html>
