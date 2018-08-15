@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const hostname = 'localhost';
-const port = '3000';
+const port = '3000' || process.env.PORT;
 
 const server = http.createServer((req, res) => {
     if(req.url === '/'){
@@ -37,5 +37,6 @@ const server = http.createServer((req, res) => {
   }).listen(port);
   
   server.listen(port, hostname, () => {
+    console.log('Node version in use: ' + process.version);
     console.log(`Server running at ${port}`);
   });
