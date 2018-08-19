@@ -18,34 +18,30 @@ body{
     grid-template-areas: "left center right"
                          "nav nav nav";
     grid-template-columns: 35% 35% 30%;
+    grid-template-rows: 100px 40px;
 
-    background: white;
-    box-shadow: 0 0 20px 0 #565656;
+    box-shadow: 0 0 80px 0 black;
 }
 .dilion-header-img{
     --imgWidth: 75%;
-    --substract-parent-element-width: calc(100% - var(--imgWidth));
     width: var(--imgWidth);
 
     margin-top: 10px;
-    position: relative;
-    left: calc(var(--substract-parent-element-width) / 2);
+    margin: auto;
     grid-area: left;
 }
 .dilion-header-right{
     --fontSize: 20pt;
-    --substract-parent-element-height: calc(100% - var(--fontSize));
-    position: relative;
-    top: calc(var(--substract-parent-element-height) / 2);
-    text-align: center;
-    
     font-size: var(--fontSize);
+    
+    margin-top: 10px;
+    line-height: 90px;
+    text-align: center;
     grid-area: right;
 }
 .dilion-navbar{
     width: 100%;
     display: flex;
-    margin-top: 10px;
 
     background: #282828;
     grid-area: nav;
@@ -68,24 +64,30 @@ body{
     color: #252525;
 }
 #dilion-slider{
-    width: 750px;
-    height: 270px;
+    --elementWidth: 100vw;
+    --elementRatio: calc(var(--elementWidth) / 75);
+    --elementHeight: calc(var(--elementRatio) * 27);
+    width: var(--elementWidth);
+    height: var(--elementHeight);
     
     background: transparent;
     margin: auto;
-    margin-top: 20px;
     position: relative;
     overflow: hidden;
 }
 #dilion-slider-container{
-    width: calc(750px * 7);
+    --elementWidth: 100vw;
+    width: calc(var(--elementWidth) * 7);
     display: flex;
 
     transition: all .3s;
 }
 .dilion-slider-content{
-    width: 750px;
-    height: 270px;
+    --elementWidth: 100vw;
+    --elementRatio: calc(var(--elementWidth) / 75);
+    --elementHeight: calc(var(--elementRatio) * 27);
+    width: var(--elementWidth);
+    height: var(--elementHeight);
     margin: 0;
 }
 

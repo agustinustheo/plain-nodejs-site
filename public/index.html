@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
     <body class="dilion-background">
-        <header class="dilion-header">
+        <header class="dilion-header dilion-background">
             <img class="dilion-header-img" src="./img/dilionatas.png" />
             <span class="dilion-header-right">Distributor Aluminium</span>
             <nav class="dilion-navbar">
@@ -64,7 +64,7 @@
             }
             else{
                 counter++;
-                slider.style.transform = 'translateX('+ parseInt(counter * -750) +'px)';
+                slider.style.transform = 'translateX('+ parseInt(counter * -100) +'vw)';
             }
         }
         function slideLeft(){
@@ -74,7 +74,7 @@
             }
             else{
                 counter--;
-                slider.style.transform = 'translateX('+ parseInt(counter * -750) +'px)';
+                slider.style.transform = 'translateX('+ parseInt(counter * -100) +'vw)';
             }
         }
         let slideRepeat = setInterval(function(){
