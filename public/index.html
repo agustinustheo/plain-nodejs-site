@@ -32,7 +32,12 @@
         </header>
         <main>
             <div id="dilion-slider">
-                <div id="dilion-slider-button"></div>
+                <div id="dilion-slider-right-button">
+                    <span id="dilion-slider-next-button"></span>
+                </div>
+                <div id="dilion-slider-left-button">
+                    <span id="dilion-slider-previous-button"></span>
+                </div>
                 <div id="dilion-slider-container">
                     <img class="dilion-slider-content" src="./img/slide/12_header2.jpg">
                     <img class="dilion-slider-content" src="./img/slide/7_DILION.jpg">
@@ -47,7 +52,8 @@
     </body>
 
     <script>
-        let sliderButton = document.getElementById('dilion-slider-button');
+        let sliderNextButton = document.getElementById('dilion-slider-right-button');
+        let sliderPrevButton = document.getElementById('dilion-slider-left-button');
         let slider = document.getElementById('dilion-slider-container');
         let counter = 0;
         
@@ -61,10 +67,6 @@
                 slider.style.transform = 'translateX('+ parseInt(counter * -750) +'px)';
             }
         }
-        setInterval(function(){
-            slideRight()
-        },4000);
-        sliderButton.onclick = function(){ slideLeft(); }
         function slideLeft(){
             if(counter <= 0 || slider.getAttribute("style")==null || slider.getAttribute("style")==""){
                 slider.style.transform = 'translateX(-4500px)';
@@ -74,6 +76,28 @@
                 counter--;
                 slider.style.transform = 'translateX('+ parseInt(counter * -750) +'px)';
             }
+        }
+        let slideRepeat = setInterval(function(){
+            slideRight()
+        },4000);
+
+        sliderNextButton.onclick = function(){ 
+            slideRight(); 
+            clearInterval(slideRepeat);
+            slideRepeat = setInterval(
+                function(){
+                    slideRight()
+                }
+            ,4000); 
+        }
+        sliderPrevButton.onclick = function(){ 
+            slideLeft(); 
+            clearInterval(slideRepeat);
+            slideRepeat = setInterval(
+                function(){
+                    slideRight()
+                }
+            ,4000); 
         }
     </script>
 </html>

@@ -89,8 +89,8 @@ body{
     margin: 0;
 }
 
-#dilion-slider-button{
-    --elementWidth: 25px;
+#dilion-slider-right-button, #dilion-slider-left-button{
+    --elementWidth: 26px;
     --elementHeight: 45px;
     --substract-parent-element-height: calc(100% - var(--elementHeight));
     width: var(--elementWidth);
@@ -102,4 +102,48 @@ body{
     top: calc(var(--substract-parent-element-height) / 2);
     right: 0;
     z-index: 10;
+
+    cursor: pointer;
+}
+
+#dilion-slider-left-button{
+    left: 0;
+}
+
+#dilion-slider-next-button, #dilion-slider-previous-button{
+    --elementWidth: 4px;
+    --elementHeight: 20px;
+    
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+
+    position: absolute;
+    top: 6px;
+    left: 11px;
+
+    color: white;
+    opacity: .5;
+    background: currentColor;
+    transform: rotate(-35deg);
+}
+
+#dilion-slider-previous-button{
+    transform: scaleX(-1) rotate(-35deg);
+}
+
+#dilion-slider-next-button::before, #dilion-slider-previous-button::before{
+    --elementWidth: 4px;
+    --elementHeight: 20px;
+    --substract-height-and-width: calc(var(--elementHeight) - var(--elementWidth));
+    
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+    content: "";
+    
+    position: absolute;
+    top: 12px;
+    left: calc(var(--substract-height-and-width) / -2);
+    
+    background: currentColor;
+    transform: rotate(-110deg); 
 }
