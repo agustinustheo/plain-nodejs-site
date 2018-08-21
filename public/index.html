@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="./css/base.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
-    <body class="dilion-background">
-        <header class="dilion-header dilion-background">
+    <body onresize="adjustSliderWidth()" class="dilion-content"> 
+        <header class="dilion-header">
             <img class="dilion-header-img" src="./img/dilionatas.png" />
             <span class="dilion-header-right">Distributor Aluminium</span>
             <nav class="dilion-navbar">
@@ -30,7 +30,80 @@
                 </div>
             </nav>
         </header>
-        <main>
+        <div class="dilion-sidebar">
+            KATEGORI
+            <hr>
+            <div class="dilion-sidebar-button">
+                Accesories
+                <a class="dilion-sidebar-button-items">
+                    a
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    b
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    z
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    x
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    z
+                </a>
+            </div>
+            <div class="dilion-sidebar-button">
+                Barang Panjang_Diffuser
+                <a class="dilion-sidebar-button-items">
+                    a
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    b
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    x
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    z
+                </a>
+            </div>
+            <div class="dilion-sidebar-button">
+                Barang Panjang_Karoseri
+                <a class="dilion-sidebar-button-items">
+                    a
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    b
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    x
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    z
+                </a>
+            </div>
+            <div class="dilion-sidebar-button">
+                Plat
+                <a class="dilion-sidebar-button-items">
+                    Plat Alumunium
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    Plat Bordes
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    Plat Galvalume
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    Plat Galvanis
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    Plat Stainless
+                </a>
+                <a class="dilion-sidebar-button-items">
+                    Plat Zincalume
+                </a>
+            </div>
+        </div>
+        <main class="dilion-main">
             <div id="dilion-slider">
                 <div id="dilion-slider-right-button">
                     <span id="dilion-slider-next-button"></span>
@@ -54,8 +127,14 @@
     <script>
         let sliderNextButton = document.getElementById('dilion-slider-right-button');
         let sliderPrevButton = document.getElementById('dilion-slider-left-button');
+        let sliderWidth = document.getElementById('dilion-slider').offsetWidth;
         let slider = document.getElementById('dilion-slider-container');
         let counter = 0;
+
+        function adjustSliderWidth(){
+            sliderWidth = document.getElementById('dilion-slider').offsetWidth;
+            slider.style.transform = 'translateX('+ parseInt(counter * -sliderWidth) +'px)';
+        }
         
         function slideRight(){
             if(counter >= 6){
@@ -64,17 +143,17 @@
             }
             else{
                 counter++;
-                slider.style.transform = 'translateX('+ parseInt(counter * -100) +'vw)';
+                slider.style.transform = 'translateX('+ parseInt(counter * -sliderWidth) +'px)';
             }
         }
         function slideLeft(){
-            if(counter <= 0 || slider.getAttribute("style")==null || slider.getAttribute("style")==""){
+            if(counter <= 0 || slider.getAttribute("style")==ndivl || slider.getAttribute("style")==""){
                 slider.style.transform = 'translateX(-4500px)';
                 counter = 6;
             }
             else{
                 counter--;
-                slider.style.transform = 'translateX('+ parseInt(counter * -100) +'vw)';
+                slider.style.transform = 'translateX('+ parseInt(counter * -sliderWidth) +'px)';
             }
         }
         let slideRepeat = setInterval(function(){
