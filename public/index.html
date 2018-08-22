@@ -8,17 +8,17 @@
         <link rel="stylesheet" href="./css/base.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
-    <body onresize="adjustSliderWidth()" class="dilion-content"> 
+    <body onresize="adjustSliderWidth()" id="dilion-content" class="dilion-content"> 
         <header class="dilion-header">
             <img class="dilion-header-img" src="./img/dilionatas.png" />
             <span class="dilion-header-right">Distributor Aluminium</span>
             <nav class="dilion-navbar">
-                <div class="dilion-navbar-item">
+                <a href="/" class="dilion-navbar-item">
                     HOME
-                </div>
-                <div class="dilion-navbar-item">
+                </a>
+                <a href="./profile.html" class="dilion-navbar-item">
                     PROFILE
-                </div>
+                </a>
                 <div class="dilion-navbar-item">
                     ARTIKEL
                 </div>
@@ -125,6 +125,12 @@
     </body>
 
     <script>
+        let contentBody = document.getElementById('dilion-content');
+        contentBody.style.transform = 'translateY(-100px)';
+        setTimeout( function(){
+            contentBody.style.transform = 'translateY(0px)';
+        }, 200);
+
         let sliderNextButton = document.getElementById('dilion-slider-right-button');
         let sliderPrevButton = document.getElementById('dilion-slider-left-button');
         let sliderWidth = document.getElementById('dilion-slider').offsetWidth;

@@ -7,6 +7,7 @@ body{
     -moz-user-select: none;
     -webkit-user-drag: none;
     cursor: default;
+    overflow-x: hidden;
 }
 .dilion-background{
     background-image: url('../img/background.png');
@@ -54,6 +55,7 @@ body{
 
     text-align: center;
     line-height: 40px;
+    text-decoration: none;
 
     color: #676767;
 
@@ -156,6 +158,15 @@ body{
                          "side main";
     grid-template-columns: 200px calc(100vw - 200px);
     grid-template-rows: 140px calc(100% - 140px);
+    transition: all .2s;
+}
+
+.dilion-profile-content{
+    display: grid;
+    grid-template-areas: "header"
+                         "main";
+    grid-template-rows: 140px calc(100% - 140px);
+    transition: all .2s;
 }
 
 .dilion-main{
@@ -203,4 +214,49 @@ body{
 
 .dilion-sidebar-button-items:hover{
     color: #282828;
+}
+
+.dilion-profile-title{
+    text-align: center;
+
+    font-size: 84pt;
+    color: #313131
+}
+
+.dilion-profile-img{
+    width: 700px;
+    display: block;
+
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.dilion-profile-img + p.dilion-profile-desc{
+    width: 680px;
+    font-size: 12pt;
+    line-height: 14pt;
+    letter-spacing: 1px;
+}
+
+.dilion-profile-img + p.dilion-profile-desc + h1.dilion-profile-title{
+    text-align: center;
+
+    font-size: 36pt;
+    color: #313131
+}
+
+.dilion-profile-desc{
+    width: 75%;
+    margin: auto;
+    font-size: 16pt;
+
+    line-height: 20pt;
+    letter-spacing: 2px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.dilion-profile-desc > b{
+    color: #e41704
 }
