@@ -1,26 +1,26 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const pg = require('pg');
-const conString = "postgres://dilionagungjaya:password@localhost:5432/dilionagungjaya";
-const client = new pg.Client(conString);
+// const pg = require('pg');
+// const conString = "postgres://dilionagungjaya:password@localhost:5432/dilionagungjaya";
+// const client = new pg.Client(conString);
 
 const hostname = 'localhost';
 const port = process.env.PORT || 3000;
   
-let namakategori = [];
-let loop = 0;
-async function x() {
-  await client.connect();
-  const res = await client.query("SELECT namakategori FROM msKategori");
-  //fired after last row is emitted
-  res.rows.forEach(row=>{
-      console.log(row['namakategori']);
-      namakategori[loop++] = row['namakategori'];
-  });
-  await client.end(); 
-}
-x();
+// let namakategori = [];
+// let loop = 0;
+// async function x() {
+//   await client.connect();
+//   const res = await client.query("SELECT namakategori FROM msKategori");
+//   //fired after last row is emitted
+//   res.rows.forEach(row=>{
+//       console.log(row['namakategori']);
+//       namakategori[loop++] = row['namakategori'];
+//   });
+//   await client.end(); 
+// }
+// x();
 
 const server = http.createServer((req, res) => {
     if(req.url === '/'){
