@@ -38,8 +38,7 @@ body{
     background: whitesmoke;
 }
 .dilion-header-img{
-    --imgWidth: 75%;
-    width: var(--imgWidth);
+    height: calc(100% - 29%);
     opacity: .7;
 
     margin-top: 10px;
