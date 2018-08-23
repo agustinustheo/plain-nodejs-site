@@ -31,7 +31,7 @@
             </nav>
         </header>
         <div class="dilion-sidebar">
-            KATEGORI
+            <b>KATEGORI</b>
             <hr>
             <div class="dilion-sidebar-button">
                 Accesories
@@ -102,6 +102,20 @@
                     Plat Zincalume
                 </a>
             </div>
+            <b>CONTACT US</b>
+            <hr>
+            <p>
+                <b>DILION AGUNG JAYA</b>
+                <b>Email</b>
+                <u>daj_dilionagungjaya@yahoo.com</u>
+                <b>Telepon</b>
+                <u>02129367606</u>
+                <b>WhatsApp</b>
+                <u>081281161290</u>
+                <u>081296580905</u>
+                <u>081297257276</u>
+            </p>
+            </div>
         </div>
         <main class="dilion-main">
             <div id="dilion-slider">
@@ -153,8 +167,8 @@
             }
         }
         function slideLeft(){
-            if(counter <= 0 || slider.getAttribute("style")==ndivl || slider.getAttribute("style")==""){
-                slider.style.transform = 'translateX(-4500px)';
+            if(counter <= 0 || slider.getAttribute("style")== null || slider.getAttribute("style")==""){
+                slider.style.transform = 'translateX(-' + parseInt(6 * sliderWidth) + 'px)';
                 counter = 6;
             }
             else{

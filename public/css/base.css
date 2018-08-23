@@ -9,6 +9,20 @@ body{
     cursor: default;
     overflow-x: hidden;
 }
+.ui-page-active { 
+    outline: none; 
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #a6a6a6;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
 .dilion-background{
     background-image: url('../img/background.png');
     background-repeat: repeat;
@@ -179,7 +193,7 @@ body{
     font-size: 20px;
 
     margin: auto;
-    margin-top: 10px;
+    margin-top: 20px;
     grid-area: side;
 }
 .dilion-sidebar-button{
@@ -259,4 +273,16 @@ body{
 
 .dilion-profile-desc > b{
     color: #e41704
+}
+
+.dilion-sidebar > p > *{
+    display: block;
+    word-break: break-all;
+}
+.dilion-sidebar > p > b{
+    margin-top: 10px;
+    font-size: 19px;
+}
+.dilion-sidebar > p > u{
+    font-size: 16px;
 }
