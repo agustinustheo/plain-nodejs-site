@@ -285,3 +285,29 @@ body{
 .dilion-sidebar > p > u{
     font-size: 16px;
 }
+.dilion-contact{
+    width: 90%;
+
+    display: flex;
+    margin: auto;
+    margin-bottom: 100px;
+}
+.dilion-contact > div{
+    width: 50%;
+}
+.dilion-contact > div > p > *{
+    display: block;
+    font-size: 19pt;
+}
+.dilion-contact > div > p > b{
+    font-size: 21pt;
+}
+.dilion-contact > div:nth-child(1){
+    /* background: blue; */
+}
+.dilion-contact > div:nth-child(2) > p > *{
+    text-align: center;
+}
+.dilion-contact > div > p > b > img{
+    width: 21pt;
+}

@@ -58,7 +58,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(404, {'Content-type': 'text/html'});
         res.end('No Page Found');
     }
-  }).listen(port);
+  });
   
   server.listen(port, hostname, () => {
     console.log('Node version in use: ' + process.version);
