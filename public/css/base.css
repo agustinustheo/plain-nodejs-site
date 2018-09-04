@@ -299,15 +299,17 @@ body{
     display: block;
     font-size: 19pt;
 }
-.dilion-contact > div > p > b{
-    font-size: 21pt;
-}
-.dilion-contact > div:nth-child(1){
-    /* background: blue; */
-}
 .dilion-contact > div:nth-child(2) > p > *{
     text-align: center;
 }
+.dilion-contact > div > p > b{
+    font-size: 21pt;
+    display: flex;
+}
 .dilion-contact > div > p > b > img{
-    width: 21pt;
+    width: 34px;
+}
+.dilion-contact > div > p > b > *{
+    display: block;
+    padding-left: 4px;
 }

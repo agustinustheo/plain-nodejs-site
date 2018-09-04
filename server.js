@@ -42,6 +42,13 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {'Content-type': 'text/css'});
         fileStream.pipe(res);
     }
+    else if(req.url.match('\.js$')){
+        let htmlPath = path.join(__dirname, 'public', req.url);
+        fs.readFile(htmlPath, (err, data)=>{
+            res.writeHead(200, {'Content-type': 'text/javascript'});
+            res.end(data);
+        });
+    }
     else if(req.url.match('\.png$')){
         let pngPath = path.join(__dirname, 'public', req.url);
         let fileStream = fs.createReadStream(pngPath);
