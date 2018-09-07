@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+
+    user-zoom: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+    overflow-x: hidden;
+}
+.ui-page-active { 
+    outline: none; 
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #a6a6a6;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+.dilion-background{
+    background-image: url('../img/background.png');
+    background-repeat: repeat;
+}
+#dilion-slider{
+    --elementWidth: calc(100vw - 220px);
+    --elementRatio: calc(var(--elementWidth) / 75);
+    --elementHeight: calc(var(--elementRatio) * 27);
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+    
+    background: transparent;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+#dilion-slider-container{
+    --elementWidth: calc(100vw - 220px);
+    width: calc(var(--elementWidth) * 7);
+    display: flex;
+
+    transition: all .3s;
+}
+.dilion-slider-content{
+    --elementWidth: calc(100vw - 220px);
+    --elementRatio: calc(var(--elementWidth) / 75);
+    --elementHeight: calc(var(--elementRatio) * 27);
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+    margin: 0;
+}
+
+#dilion-slider-right-button, #dilion-slider-left-button{
+    --elementWidth: 26px;
+    --elementHeight: 45px;
+    --substract-parent-element-height: calc(100% - var(--elementHeight));
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+    background: #282828;
+    opacity: .8;
+
+    position: absolute;
+    top: calc(var(--substract-parent-element-height) / 2);
+    right: 0;
+    z-index: 10;
+
+    cursor: pointer;
+}
+
+#dilion-slider-left-button{
+    left: 0;
+}
+
+#dilion-slider-next-button, #dilion-slider-previous-button{
+    --elementWidth: 4px;
+    --elementHeight: 20px;
+    
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+
+    position: absolute;
+    top: 6px;
+    left: 11px;
+
+    color: white;
+    opacity: .5;
+    background: currentColor;
+    transform: rotate(-35deg);
+}
+
+#dilion-slider-previous-button{
+    transform: scaleX(-1) rotate(-35deg);
+}
+
+#dilion-slider-next-button::before, #dilion-slider-previous-button::before{
+    --elementWidth: 4px;
+    --elementHeight: 20px;
+    --substract-height-and-width: calc(var(--elementHeight) - var(--elementWidth));
+    
+    width: var(--elementWidth);
+    height: var(--elementHeight);
+    content: "";
+    
+    position: absolute;
+    top: 12px;
+    left: calc(var(--substract-height-and-width) / -2);
+    
+    background: currentColor;
+    transform: rotate(-110deg); 
+}
+
+.dilion-content{
+    display: grid;
+    grid-template-areas: "header header"
+                         "side main";
+    grid-template-columns: 200px calc(100vw - 200px);
+    grid-template-rows: 140px calc(100% - 140px);
+    transition: all .2s;
+}
+
+.dilion-main{
+    margin-top: 10px;
+    grid-area: main;
+}

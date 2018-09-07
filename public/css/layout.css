@@ -1,0 +1,108 @@
+/*---------------------------------------DILION HEADER & NAVBAR---------------------------------------*/
+.dilion-header{
+    width: 100vw;
+    display: grid;
+    grid-template-areas: "left center right"
+                         "nav nav nav";
+    grid-template-columns: calc(65% / 2) 35% calc(65% / 2);
+    grid-template-rows: 100px 40px;
+
+    background: whitesmoke;
+}
+.dilion-header-img{
+    height: calc(100% - 29%);
+    opacity: .7;
+
+    margin-top: 10px;
+    margin: auto;
+    grid-area: center;
+}
+.dilion-header-right{
+    --fontSize: 20pt;
+    font-size: var(--fontSize);
+    
+    color: #676767;
+    margin-top: 10px;
+    line-height: 90px;
+    text-align: center;
+    grid-area: left;
+}
+.dilion-navbar{
+    width: 100%;
+    display: flex;
+
+    grid-area: nav;
+}
+.dilion-navbar-item{
+    width: 10%;
+    height: 40px;
+    font-weight: bold;
+
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+
+    color: #676767;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+.dilion-navbar-item:hover{
+    color: #282828;
+}
+
+/*---------------------------------------DILION SIDEBAR---------------------------------------*/
+
+.dilion-sidebar{
+    width: 190px;
+    font-size: 20px;
+
+    margin: auto;
+    margin-top: 20px;
+    grid-area: side;
+}
+.dilion-sidebar-button{
+    margin-bottom: 10px;
+
+    color: #676767;
+    cursor: pointer;
+    transition: all .2s;
+}
+.dilion-sidebar-button-items{
+    height: 0;
+    display: block;
+
+    font-size: 16px;
+    color: #676767;
+    opacity: 0;
+    visibility: hidden;
+    
+    transition: all .2s;
+}
+.dilion-sidebar-button:hover > .dilion-sidebar-button-items{
+    height: 30px;
+    line-height: 30px;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.dilion-sidebar-button:hover{
+    color: #282828;
+}
+
+.dilion-sidebar-button-items:hover{
+    color: #282828;
+}
+
+.dilion-sidebar > p > *{
+    display: block;
+    word-break: break-all;
+}
+.dilion-sidebar > p > b{
+    margin-top: 10px;
+    font-size: 19px;
+}
+.dilion-sidebar > p > u{
+    font-size: 16px;
+}

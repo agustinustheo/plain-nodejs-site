@@ -1,0 +1,55 @@
+.dilion-contact{
+    width: 90%;
+
+    color: #343434;
+    display: flex;
+    margin: auto;
+    margin-bottom: 100px;
+}
+.dilion-contact > div:nth-child(1){
+    width: 40%;
+    display: flex;
+}
+.dilion-contact > div:nth-child(2){
+    width: 60%;
+}
+.dilion-contact > div:nth-child(1) > p:nth-child(1){
+    width: 40%;
+}
+.dilion-contact > div:nth-child(1) > p:nth-child(2){
+    width: 60%;
+}
+.dilion-contact > div > p > b.dilion-contact-type{
+    font-size: 20pt;
+}
+.dilion-contact > div > p > *{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 10pt;
+}
+.dilion-contact > div:nth-child(2) > p > *, .dilion-contact > div:nth-child(2) > p > b{
+    display: block;
+    text-align: center;
+}
+.dilion-contact > div:nth-child(1) > p > b{
+    margin-top: 10px;
+}
+.dilion-contact > div:nth-child(1) > p > b{
+    font-size: 16pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dilion-contact > div > p > b > img{
+    width: 30px;
+    opacity: .8;
+}
+.dilion-contact > div > p > b > *{
+    display: block;
+    padding-left: 4px;
+}
+.dilion-contact > div:nth-child(2) > p > b{
+    margin-top: 10px;
+    font-size: 16pt;
+}

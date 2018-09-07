@@ -1,0 +1,52 @@
+.dilion-profile-content{
+    display: grid;
+    grid-template-areas: "header"
+                         "main";
+    grid-template-rows: 140px calc(100% - 140px);
+    transition: all .2s;
+}
+
+.dilion-profile-title{
+    text-align: center;
+
+    font-size: 84pt;
+    color: #313131
+}
+
+.dilion-profile-img{
+    width: 700px;
+    display: block;
+
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.dilion-profile-img + p.dilion-profile-desc{
+    width: 680px;
+    font-size: 12pt;
+    line-height: 14pt;
+    letter-spacing: 1px;
+}
+
+.dilion-profile-img + p.dilion-profile-desc + h1.dilion-profile-title{
+    text-align: center;
+
+    font-size: 36pt;
+    color: #313131
+}
+
+.dilion-profile-desc{
+    width: 75%;
+    margin: auto;
+    font-size: 16pt;
+
+    line-height: 20pt;
+    letter-spacing: 2px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.dilion-profile-desc > b{
+    color: #e41704
+}
