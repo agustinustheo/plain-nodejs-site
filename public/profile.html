@@ -9,27 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
     <body class="dilion-profile-content" id="dilion-profile-content"> 
-        <header class="dilion-header">
-            <img class="dilion-header-img" src="./img/dilionatas.png" />
-            <span class="dilion-header-right">Distributor Aluminium</span>
-            <nav class="dilion-navbar">
-                <a href="/" class="dilion-navbar-item">
-                    HOME
-                </a>
-                <a href="./profile.html" class="dilion-navbar-item">
-                    PROFILE
-                </a>
-                <a href="./contact.html" class="dilion-navbar-item">
-                    ARTIKEL
-                </a>
-                <a href="./contact.html" class="dilion-navbar-item">
-                    GALLERY
-                </a>
-                <a href="./contact.html" class="dilion-navbar-item">
-                    CONTACT
-                </a>
-            </nav>
-        </header>
+        <header id="dilionHeader" class="dilion-header"></header>
         <main class="dilion-main">
             <h1 class="dilion-profile-title">TENTANG KAMI</h1>
             <p class="dilion-profile-desc">
@@ -47,6 +27,8 @@
         </main>
     </body>
 
+    <script src="./scripts/loadHTML.js"></script>
     <script>
+        loadHTML( "dilionHeader", "./_views/navbar.html" );
     </script>
 </html>
