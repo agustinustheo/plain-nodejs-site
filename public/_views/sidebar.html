@@ -15,17 +15,34 @@
 </div>
 
 <script>
-    let kategori;
-    getJSON("/kategori", function(err, res){
-        if(err){
-            console.log('Error : ' + err)
-        }
-        else{
-            kategori = JSON.parse(res);
-            for(let i = 0; i < kategori.length; i++){
-              console.log(kategori[i].namakategori)
-              document.getElementById('dilionSidebarContainer').innerHTML += '<div class="dilion-sidebar-button">' + kategori[i].namakategori + '</div>';
+    let kategori, subkategori;
+    async function getKategori(){
+        await getJSON("/kategori", function(err, res){
+            if(err){
+                console.log('Error : ' + err)
             }
-        }
-    });
+            else{
+                kategori = JSON.parse(res);
+                for(let i = 0; i < kategori.length; i++){
+                    document.getElementById('dilionSidebarContainer').innerHTML += '<div class="dilion-sidebar-button">' + kategori[i].namakategori + '<div id="dilionSidebarItemContainer' + kategori[i].idkategori + '"></div></div>';
+                    console.log(kategori[i].idkategori);
+                    getSubkategori(kategori[i].idkategori);
+                }
+            }
+        });
+    }
+    async function getSubkategori(idkategori){
+        await getJSON('/kategori?sub=' + idkategori, function(s_err, s_res){
+            if(s_err){
+                console.log('Error : ' + s_err)
+            }
+            else{
+                subkategori = JSON.parse(s_res);
+                for(let j = 0; j < subkategori.length; j++){
+                    document.getElementById('dilionSidebarItemContainer' + idkategori).innerHTML += '<a class="dilion-sidebar-button-items">' + subkategori[j].namakategori + '</a>';
+                }
+            }
+        });
+    }
+    getKategori();
 </script>

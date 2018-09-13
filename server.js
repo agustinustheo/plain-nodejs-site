@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const url = require('url');
 const path = require('path');
 const { Client } = require('pg');
 const client = new Client({
@@ -24,6 +25,9 @@ const port = process.env.PORT || 3000;
 
 
 const server = http.createServer((req, res) => {
+    let adr = 'http://localhost:' + port + req.url;
+    let q = url.parse(adr, true);
+
     switch(req.method){
         case 'GET':
             if(req.url === '/'){
@@ -32,15 +36,35 @@ const server = http.createServer((req, res) => {
                     res.end(data);
                 });
             }
-            else if(req.url === '/kategori'){
-                async function getListKategori() {
-                    await client.query("SELECT namakategori FROM msKategori")
+            //FOR SEARCH PARAMS
+            else if (q.search){
+                async function getListSubkategori(idkategori) {
+                    await client.query("SELECT namakategori FROM trsubkategori WHERE idkategori = " + idkategori)
                         .then(result => {
                             res.writeHead(200, {'Content-Type': 'application/json'});
                             res.write(JSON.stringify(result.rows));
                             res.end();
                         })
-                        .catch(e => console.error(e.stack))
+                        .catch(e => console.error(e.stack));
+                }
+                let qdata = q.query;
+                if(qdata.sub && q.pathname === '/kategori'){
+                    getListSubkategori(qdata.sub);
+                }
+                else{
+
+                }
+            }
+            else if(req.url === '/kategori'){
+
+                async function getListKategori() {
+                    await client.query("SELECT idkategori, namakategori FROM msKategori")
+                        .then(result => {
+                            res.writeHead(200, {'Content-Type': 'application/json'});
+                            res.write(JSON.stringify(result.rows));
+                            res.end();
+                        })
+                        .catch(e => console.error(e.stack));
                         //END CLIENT
                         // .then(() => {
                         //     console.log('Ending Connection..');
