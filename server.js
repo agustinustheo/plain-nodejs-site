@@ -80,6 +80,34 @@ const server = http.createServer((req, res) => {
                 }
                 getListKategori();
             }
+            else if(req.url === '/profile'){
+                let htmlPath = path.join(__dirname, 'public', './profile.html');
+                fs.readFile(htmlPath, (err, data)=>{
+                    res.writeHead(200, {'Content-type': 'text/html'});
+                    res.end(data);
+                });
+            }
+            else if(req.url === '/artikel'){
+                let htmlPath = path.join(__dirname, 'public', './artikel.html');
+                fs.readFile(htmlPath, (err, data)=>{
+                    res.writeHead(200, {'Content-type': 'text/html'});
+                    res.end(data);
+                });
+            }
+            else if(req.url === '/gallery'){
+                let htmlPath = path.join(__dirname, 'public', './gallery.html');
+                fs.readFile(htmlPath, (err, data)=>{
+                    res.writeHead(200, {'Content-type': 'text/html'});
+                    res.end(data);
+                });
+            }
+            else if(req.url === '/contact'){
+                let htmlPath = path.join(__dirname, 'public', './contact.html');
+                fs.readFile(htmlPath, (err, data)=>{
+                    res.writeHead(200, {'Content-type': 'text/html'});
+                    res.end(data);
+                });
+            }
             else if(req.url.match('\.html$')){
                 let htmlPath = path.join(__dirname, 'public', req.url);
                 fs.readFile(htmlPath, (err, data)=>{
