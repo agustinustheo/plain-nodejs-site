@@ -1,0 +1,71 @@
+<div id="dilion-slider-right-button">
+        <span id="dilion-slider-next-button"></span>
+    </div>
+    <div id="dilion-slider-left-button">
+        <span id="dilion-slider-previous-button"></span>
+    </div>
+    <div id="dilion-slider-container">
+        <img class="dilion-slider-content" src="./img/slide/12_header2.jpg">
+        <img class="dilion-slider-content" src="./img/slide/7_DILION.jpg">
+        <img class="dilion-slider-content" src="./img/slide/_dil1.jpg">
+        <img class="dilion-slider-content" src="./img/slide/_dil2.jpg">
+        <img class="dilion-slider-content" src="./img/slide/_dil5.jpg">
+        <img class="dilion-slider-content" src="./img/slide/_dil4.jpg">
+        <img class="dilion-slider-content" src="./img/slide/_dil3.jpg">
+</div>
+
+<script>
+        let sliderNextButton = document.getElementById('dilion-slider-right-button');
+        let sliderPrevButton = document.getElementById('dilion-slider-left-button');
+        let sliderWidth = document.getElementById('dilionSlider').offsetWidth;
+        let slider = document.getElementById('dilion-slider-container');
+        let counter = 0;
+        
+        function adjustSliderWidth(){
+            sliderWidth = document.getElementById('dilionSlider').offsetWidth;
+            slider.style.transform = 'translateX('+ parseInt(counter * -sliderWidth) +'px)';
+        }
+        
+        function slideRight(){
+            if(counter >= 6){
+                slider.style.transform = 'translateX(0px)';
+                counter = 0;
+            }
+            else{
+                counter++;
+                slider.style.transform = 'translateX('+ parseInt(counter * -sliderWidth) +'px)';
+            }
+        }
+        function slideLeft(){
+            if(counter <= 0 || slider.getAttribute("style")== null || slider.getAttribute("style")==""){
+                slider.style.transform = 'translateX(-' + parseInt(6 * sliderWidth) + 'px)';
+                counter = 6;
+            }
+            else{
+                counter--;
+                slider.style.transform = 'translateX('+ parseInt(counter * -sliderWidth) +'px)';
+            }
+        }
+        let slideRepeat = setInterval(function(){
+            slideRight()
+        },4000);
+        
+        sliderNextButton.onclick = function(){ 
+            slideRight(); 
+            clearInterval(slideRepeat);
+            slideRepeat = setInterval(
+                function(){
+                    slideRight()
+                }
+            ,4000); 
+        }
+        sliderPrevButton.onclick = function(){ 
+            slideLeft(); 
+            clearInterval(slideRepeat);
+            slideRepeat = setInterval(
+                function(){
+                    slideRight()
+                }
+            ,4000); 
+        }
+</script>

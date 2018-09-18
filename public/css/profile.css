@@ -1,4 +1,4 @@
-.dilion-profile-content{
+.dilion-secondary-grid{
     display: grid;
     grid-template-areas: "header"
                          "main";

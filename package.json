@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "server.js",
-    "dev": "nodemon server.js"
+    "dev": "DATABASE_URL=$(heroku config:get DATABASE_URL -a dilionagungjaya) nodemon server.js"
   },
   "repository": {
     "type": "git",

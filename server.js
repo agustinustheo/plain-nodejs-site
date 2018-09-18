@@ -3,12 +3,9 @@ const fs = require('fs');
 const url = require('url');
 const path = require('path');
 const { Client } = require('pg');
-const client = new Client({
-    host: 'localhost',
-    port: 5432,
-    user: 'dilionagungjaya',
-    password: 'password',
-    database: 'dilionagungjaya'
+const client = new Client({ 
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 })
 
 async function connectClient(){
@@ -81,28 +78,28 @@ const server = http.createServer((req, res) => {
                 getListKategori();
             }
             else if(req.url === '/profile'){
-                let htmlPath = path.join(__dirname, 'public', './profile.html');
+                let htmlPath = path.join(__dirname, 'public', './secondary.html');
                 fs.readFile(htmlPath, (err, data)=>{
                     res.writeHead(200, {'Content-type': 'text/html'});
                     res.end(data);
                 });
             }
             else if(req.url === '/artikel'){
-                let htmlPath = path.join(__dirname, 'public', './artikel.html');
+                let htmlPath = path.join(__dirname, 'public', './secondary.html');
                 fs.readFile(htmlPath, (err, data)=>{
                     res.writeHead(200, {'Content-type': 'text/html'});
                     res.end(data);
                 });
             }
             else if(req.url === '/gallery'){
-                let htmlPath = path.join(__dirname, 'public', './gallery.html');
+                let htmlPath = path.join(__dirname, 'public', './secondary.html');
                 fs.readFile(htmlPath, (err, data)=>{
                     res.writeHead(200, {'Content-type': 'text/html'});
                     res.end(data);
                 });
             }
             else if(req.url === '/contact'){
-                let htmlPath = path.join(__dirname, 'public', './contact.html');
+                let htmlPath = path.join(__dirname, 'public', './secondary.html');
                 fs.readFile(htmlPath, (err, data)=>{
                     res.writeHead(200, {'Content-type': 'text/html'});
                     res.end(data);

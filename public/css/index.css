@@ -27,7 +27,7 @@ body{
     background-image: url('../img/background.png');
     background-repeat: repeat;
 }
-#dilion-slider{
+#dilionSlider{
     --elementWidth: calc(100vw - 220px);
     --elementRatio: calc(var(--elementWidth) / 75);
     --elementHeight: calc(var(--elementRatio) * 27);
@@ -114,7 +114,7 @@ body{
     transform: rotate(-110deg); 
 }
 
-.dilion-content{
+.dilion-primary-grid{
     display: grid;
     grid-template-areas: "header header"
                          "side main";

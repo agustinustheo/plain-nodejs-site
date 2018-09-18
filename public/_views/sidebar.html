@@ -25,7 +25,6 @@
                 kategori = JSON.parse(res);
                 for(let i = 0; i < kategori.length; i++){
                     document.getElementById('dilionSidebarContainer').innerHTML += '<div class="dilion-sidebar-button">' + kategori[i].namakategori + '<div id="dilionSidebarItemContainer' + kategori[i].idkategori + '"></div></div>';
-                    console.log(kategori[i].idkategori);
                     getSubkategori(kategori[i].idkategori);
                 }
             }
